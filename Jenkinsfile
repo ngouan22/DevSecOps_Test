@@ -29,6 +29,16 @@ pipeline {
           sh 'docker push geektecknology/devsecopsapp:""$GIT_COMMIT"" '
         }
         }
-      }     
+      }
+
+      stage ('Deploy To Kubernetes'){
+        steps{
+          withKubeConfig([credentialsId: 'kubeconfig']){
+          sh "sed -i 's#replace#geektecknology/devsecopsapp:${GIT_COMMIT}#g' k8s_deployment_service.yaml"
+          sh 'kubectl apply -f k8s_deployment_service.yaml '
+        }
+        }
+      }
+
     }
 }
