@@ -40,5 +40,11 @@ pipeline {
         }
       }
 
+      stage('Remove Unsed docker Images') {
+            steps {
+              sh 'docker rmi geektecknology/devsecopsapp:""$GIT_COMMIT"" '       
+            }
+        }
+
     }
 }
