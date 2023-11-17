@@ -19,6 +19,14 @@ pipeline {
                 jacoco execPattern: 'target/jacoco.exec'
               }
             }
-        }     
+        }
+
+      stage (Docker Build and Push){
+        steps{
+          sh 'printenv'
+          sh 'docker build -t geektecknology/devsecopsapp:""$GIT_COMMIT"" .'
+          sh 'docker push geektecknology/devsecopsapp:""$GIT_COMMIT"" '
+        }
+      }     
     }
 }
