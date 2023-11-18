@@ -19,20 +19,7 @@ pipeline {
                 jacoco execPattern: 'target/jacoco.exec'
               }
             }
-        }
-      
-      stage ('SonarQube SAST'){
-        steps{
-         
-          sh 'mvn verify sonar:sonar \
-              -Dsonar.token=1d0b8c800557a0ac04f7bea24dd4aca2637b4bf3 \
-              -Dsonar.host.url=https://sonarcloud.io \
-              -Dsonar.organization=azuredevopsorganisation \
-              -Dsonar.projectKey=azuredevopsorganisation_devsecops'
-        }
-      
-      }
-      
+        }   
 
       stage('build && SonarQube analysis') {
             steps {
@@ -43,7 +30,7 @@ pipeline {
                 }
             }
         }
-        stage("Quality Gate") {
+      stage("Quality Gate") {
             steps {
                 timeout(time: 2, unit: 'MINUTES') {
                     // Parameter indicates whether to set pipeline to UNSTABLE if Quality Gate fails
