@@ -25,7 +25,7 @@ pipeline {
         steps{
          
           sh 'mvn verify sonar:sonar \
-              -Dsonar.token=3dcc81515d0e7ad1cf12e8f29243d982a6542ef8 \
+              -Dsonar.token=1d0b8c800557a0ac04f7bea24dd4aca2637b4bf3 \
               -Dsonar.host.url=https://sonarcloud.io \
               -Dsonar.organization=azuredevopsorganisation \
               -Dsonar.projectKey=azuredevopsorganisation_devsecops'
