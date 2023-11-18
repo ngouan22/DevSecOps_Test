@@ -89,7 +89,7 @@
 			                    </suppressionFiles> 
 			                 -->
 			    </configuration>
-			   </plugin> -->
+			   </plugin>
 
 			   <!-- <plugin>
               <groupId>org.owasp</groupId>
