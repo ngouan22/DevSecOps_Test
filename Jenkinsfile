@@ -24,8 +24,9 @@ pipeline {
       stage('build && SonarQube analysis') {
             steps {
                 withSonarQubeEnv('SonarQube') {
-              sh 'mvn verify sonar:sonar'
-              
+              sh 'mvn verify sonar:sonar \
+              -Dsonar.organization=azuredevopsorganisation \
+              -Dsonar.projectKey=azuredevopsorganisation_devsecops'
                 }
             }
         }
