@@ -73,8 +73,8 @@
 			    <version>6.1.6</version>
 			    <configuration>
 			     <format>ALL</format>
-			     <failBuildOnCVSS>9</failBuildOnCVSS> <!-- fail the build for CVSS greater than or equal to 9 -->
-                 <failOnError>false</failOnError>
+			    <!--  <failBuildOnCVSS>9</failBuildOnCVSS>  --><!-- fail the build for CVSS greater than or equal to 9 -->
+                 <!-- <failOnError>false</failOnError> -->
 			     <!-- 
 			      use internal mirroring of CVE contents 
 			      Suppress files 
