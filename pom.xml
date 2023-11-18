@@ -66,7 +66,16 @@
 			    </executions>
 			   </plugin>
 
-			   <plugin>
+             <plugin>
+			    <groupId>org.owasp</groupId>
+			    <artifactId>dependency-check-maven</artifactId>
+			    <version>6.1.6</version>
+			    <configuration>
+			     <format>ALL</format>
+			     <failBuildOnCVSS>8</failBuildOnCVSS>
+             </plugin>
+
+			   <!-- <plugin>
               <groupId>org.owasp</groupId>
               <artifactId>dependency-check-maven</artifactId>
               <version>8.4.3</version>
@@ -80,7 +89,7 @@
                       </goals>
                   </execution>
               </executions>
-            </plugin>
+            </plugin> -->
 
 
 		</plugins>
