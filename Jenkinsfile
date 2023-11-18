@@ -13,12 +13,7 @@ pipeline {
             steps {
               sh "mvn test"
             }
-            post{
-              always{
-                junit 'target/surefire-reports/*.xml'
-                jacoco execPattern: 'target/jacoco.exec'
-              }
-            }
+            
         }   
 
         stage('build && SonarQube analysis') {
@@ -45,11 +40,6 @@ pipeline {
               sh "mvn dependency-check:check"
             }
 
-              post{
-                  always {
-                    dependencyCheckPublisher pattern: 'target/dependency-check-report.xml'
-                  }
-              }
       }
 
 
@@ -79,5 +69,13 @@ pipeline {
         }
         */
     }
+
+    post{
+              always{
+                junit 'target/surefire-reports/*.xml'
+                jacoco execPattern: 'target/jacoco.exec'
+                 dependencyCheckPublisher pattern: 'target/dependency-check-report.xml'
+              }
+            }
 
     }
