@@ -38,7 +38,7 @@ pipeline {
                     waitForQualityGate abortPipeline: true
                 }
             }
-        } */ */
+        } */
       /* stage('Vulnerability Scan - Docker'){
 
             steps{
