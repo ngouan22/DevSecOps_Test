@@ -39,7 +39,6 @@ pipeline {
                 }
             }
         }
-  }
       stage('Vulnerability Scan - Docker'){
 
             steps{
@@ -78,5 +77,7 @@ pipeline {
               sh 'docker rmi geektecknology/devsecopsapp:""$GIT_COMMIT""'    
             }
         }
-    //test    
+       
+    }
+
     }
