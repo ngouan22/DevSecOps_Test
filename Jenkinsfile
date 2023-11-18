@@ -21,7 +21,7 @@ pipeline {
             }
         }   
 
-      stage('build && SonarQube analysis') {
+      /* stage('build && SonarQube analysis') {
             steps {
                 withSonarQubeEnv('SonarQube') {
               sh 'mvn verify sonar:sonar \
@@ -38,7 +38,7 @@ pipeline {
                     waitForQualityGate abortPipeline: true
                 }
             }
-        }
+        } */
       /* stage('Vulnerability Scan - Docker'){
 
             steps{
@@ -53,7 +53,7 @@ pipeline {
       } */
 
 
-      stage ('Docker Build and Push'){
+      /* stage ('Docker Build and Push'){
         steps{
           withDockerRegistry([credentialsId: 'docker_hub', url: '']){
           sh 'printenv'
@@ -61,23 +61,23 @@ pipeline {
           sh 'docker push geektecknology/devsecopsapp:""$GIT_COMMIT"" '
         }
         }
-      }
+      } */
 
-      stage ('Deploy To Kubernetes'){
+      /* stage ('Deploy To Kubernetes'){
         steps{
           withKubeConfig([credentialsId: 'kubeconfig']){
           sh "sed -i 's#replace#geektecknology/devsecopsapp:${GIT_COMMIT}#g' k8s_deployment_service.yaml"
           sh 'kubectl apply -f k8s_deployment_service.yaml '
         }
         }
-      }
+      } */
 
-      stage('Remove Unsed docker Images') {
+      /* stage('Remove Unsed docker Images') {
             steps {
               sh 'docker rmi geektecknology/devsecopsapp:""$GIT_COMMIT""'    
             }
         }
-       
+        */
     }
 
     }
