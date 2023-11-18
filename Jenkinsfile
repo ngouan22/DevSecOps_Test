@@ -50,7 +50,7 @@ pipeline {
               sh "mvn dependency-check:check"
             },
             "OPA Conftest":{
-	        		sh 'docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy dockerfile-security.rego Dockerfile'
+	        		sh 'sudo docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy dockerfile-security.rego Dockerfile'
 	       		}
             )
       }
