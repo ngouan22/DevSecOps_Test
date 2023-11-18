@@ -49,7 +49,7 @@ pipeline {
               sh "mvn dependency-check:check"
             }
             )
-      }
+      
       }
 
       /* stage('Vulnerability Scan - Docker'){
