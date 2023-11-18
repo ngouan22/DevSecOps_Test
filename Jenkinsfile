@@ -20,6 +20,19 @@ pipeline {
               }
             }
         }
+      
+      stage ('SonarQube SAST'){
+        steps{
+         
+          sh 'mvn verify sonar:sonar \
+              -Dsonar.token=3dcc81515d0e7ad1cf12e8f29243d982a6542ef8 \
+              -Dsonar.host.url=https://sonarcloud.io \
+              -Dsonar.organization=azuredevopsorganisation \
+              -Dsonar.projectKey=azuredevopsorganisation_devsecops'
+        }
+      
+      }
+      
 
       stage ('Docker Build and Push'){
         steps{
@@ -42,7 +55,7 @@ pipeline {
 
       stage('Remove Unsed docker Images') {
             steps {
-              sh 'docker rmi geektecknology/devsecopsapp:""$GIT_COMMIT"" ' //test      
+              sh 'docker rmi geektecknology/devsecopsapp:""$GIT_COMMIT""'    
             }
         }
 
