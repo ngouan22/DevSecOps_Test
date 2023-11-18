@@ -78,5 +78,5 @@ pipeline {
               sh 'docker rmi geektecknology/devsecopsapp:""$GIT_COMMIT""'    
             }
         }
-
+    //test    
     }
